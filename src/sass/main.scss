@@ -1,0 +1,35 @@
+body {
+  // display: flex;
+  // justify-content: center;
+  background-color: bisque;
+  padding: 30px;
+
+  header {
+    width: 100%;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .input{
+    border: 0;
+    width: 300px;
+    height: 25px;
+    outline: none;
+    border-radius: 7px;
+    margin-top: 7px;
+    padding: 0 7px 0 7px;
+  }
+
+  .submitButton {
+    background-color: bisque;
+    width: 314px;
+    &:hover {
+      background-color: rgb(0, 160, 160);
+      transition: 0.5s;
+    }
+
+  }
+}
