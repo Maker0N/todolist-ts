@@ -1,22 +1,55 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { FC } from "react";
+import { useSelector, TypedUseSelectorHook } from "react-redux";
 import Header from "./header";
 import Todo from "./todo";
+import Footer from "./footer";
+import { ReducersType } from "../redux/store";
+import { TasksType } from "../types/types";
 import "../sass/main.scss";
 
-function App() {
-  const { tasks } = useSelector((s: any) => s.todoReducer);
-  console.log(tasks)
-  return (
-      <main className="App">
-        <Header />
-        <section>
-          {tasks.map((it: any) => {
-            return <Todo itTask={it.task} key={it.id}/>;
-          })}
-        </section>
-      </main>
+const App: FC = () => {
+  const pageSize = Math.floor(
+    (document.body.getBoundingClientRect().height) / 61
   );
-}
+
+  const useTypedSelector: TypedUseSelectorHook<ReducersType> = useSelector;
+  const { tasks, currentPage } = useTypedSelector((s) => s.todoReducer);
+  console.log(tasks, currentPage);
+
+  const pageCount: number = Math.ceil(tasks.length / pageSize);
+  let pages: number[] = [];
+  for (let i = 1; i <= pageCount; i += 1) {
+    pages = [...pages, i];
+  }
+
+  return (
+    <main>
+      <Header currentPage={currentPage} />
+      <section>
+        {tasks
+          .slice(
+            pageSize * currentPage - pageSize,
+            pageSize * currentPage
+          )
+          .map((it: TasksType) => {
+            return (
+              <Todo
+                itTask={it}
+                pageSize={pageSize}
+                currentPage={currentPage}
+                key={it.id}
+              />
+            );
+          })}
+      </section>
+      <Footer
+        tasks={tasks}
+        pages={pages}
+        pageSize={pageSize}
+        currentPage={currentPage}
+      />
+    </main>
+  );
+};
 
 export default App;

@@ -1,6 +1,63 @@
 .todo {
-  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  margin: 0 15px 15px 15px;
   padding: 10px;
   border-radius: 5px;
-  background-color:cornsilk;
+  background-color: rgb(202, 189, 143);
+  box-shadow: 3px 3px 10px aqua;
+  .buttonX {
+    width: 25px;
+    height: 25px;
+    background-color: rgb(167, 141, 85);
+    margin: 0 3px;
+    border-radius: 5px;
+    border: none;
+  }
+}
+
+.doneTodo {
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  margin: 0 15px 15px 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(100, 100, 100);
+  color: rgb(65, 65, 65);
+  .buttonX {
+    width: 25px;
+    height: 25px;
+    background-color: rgb(100, 100, 100);
+    margin: 0 3px;
+    border-radius: 5px;
+    border: none;
+  }
+}
+
+.time {
+  display:flex;
+  justify-content: center;
+  min-width: 150px;
+  border:rgb(14, 13, 13);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.transition {
+  transition: 1s;
+}
+
+.buttons {
+  display: flex;
+  min-width: 60px;
 }

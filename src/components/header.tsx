@@ -1,11 +1,11 @@
 import React from 'react'
 import Input from './input'
 
-const Header = () => {
+const Header= (props: any) => {
   return (
     <header>
-      <h5 className="center">Todo List</h5>
-      <Input />
+      <h3 className="center">Todo List</h3>
+      <Input currentPage={props.currentPage}/>
     </header>
   );
 }
