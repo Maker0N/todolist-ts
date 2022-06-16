@@ -8,7 +8,6 @@ const Footer = (props: any) => {
   const pageSize = Math.floor(
     (document.body.getBoundingClientRect().height) / 61
   );
-  console.log(pageSize, document.body.getBoundingClientRect().height)
 
   return (
     <footer className="footer">

@@ -14,7 +14,6 @@ const App: FC = () => {
 
   const useTypedSelector: TypedUseSelectorHook<ReducersType> = useSelector;
   const { tasks, currentPage } = useTypedSelector((s) => s.todoReducer);
-  console.log(tasks, currentPage);
 
   const pageCount: number = Math.ceil(tasks.length / pageSize);
   let pages: number[] = [];
@@ -25,7 +24,7 @@ const App: FC = () => {
   return (
     <main>
       <Header currentPage={currentPage} />
-      <section>
+      <section className="section">
         {tasks
           .slice(
             pageSize * currentPage - pageSize,

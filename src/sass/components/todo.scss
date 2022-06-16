@@ -61,3 +61,8 @@
   display: flex;
   min-width: 60px;
 }
+
+.section {
+  display: flex;
+  flex-direction: column-reverse;
+}
